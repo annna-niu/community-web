@@ -1,0 +1,252 @@
+:root {
+    --primary-color: #FFB6C1;
+    --primary-hover: #FF69B4;
+    --bg-color: #FFF0F5;
+    --card-bg: #FFFFFF;
+    --text-color: #333333;
+    --text-light: #666666;
+    --danger-color: #FF4500;
+    --success-color: #32CD32;
+    --border-radius: 12px;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Noto Sans TC', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 30px;
+    padding: 20px;
+    background: linear-gradient(135deg, #FFB6C1 0%, #FFC0CB 100%);
+    border-radius: var(--border-radius);
+    color: white;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.subtitle {
+    font-size: 0.9em;
+    opacity: 0.9;
+}
+
+.card {
+    background-color: var(--card-bg);
+    border-radius: var(--border-radius);
+    padding: 20px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    margin-bottom: 20px;
+}
+
+.form-card h2 {
+    color: var(--primary-hover);
+    margin-bottom: 15px;
+    font-size: 1.2M;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group-row {
+    display: flex;
+    gap: 15px;
+}
+
+.half {
+    flex: 1;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 500;
+    color: var(--text-light);
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-family: inherit;
+    font-size: 1em;
+    transition: border-color 0.3s;
+}
+
+input:focus {
+    outline: none;
+    border-color: var(--primary-hover);
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: bold;
+    width: 100%;
+    transition: background-color 0.3s;
+}
+
+.btn-primary:hover {
+    background-color: var(--primary-hover);
+}
+
+/* 篩選按鈕 */
+.filters {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.filter-btn {
+    background-color: transparent;
+    border: 2px solid var(--primary-color);
+    color: var(--primary-hover);
+    padding: 6px 15px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: all 0.3s;
+}
+
+.filter-btn.active, .filter-btn:hover {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+/* 任務卡片 */
+.tasks-grid {
+    display: grid;
+    gap: 15px;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+}
+
+.task-card {
+    background-color: var(--card-bg);
+    border-radius: var(--border-radius);
+    padding: 15px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    border-left: 5px solid var(--primary-color);
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.2s;
+}
+
+.task-card:hover {
+    transform: translateY(-2px);
+}
+
+.task-card.overdue {
+    border-left-color: var(--danger-color);
+    background-color: #FFF5F5;
+}
+
+.task-card.completed {
+    border-left-color: var(--success-color);
+    opacity: 0.7;
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.badge {
+    padding: 3px 8px;
+    border-radius: 12px;
+    font-size: 0.8em;
+    font-weight: bold;
+}
+
+.status-badge {
+    background-color: #eee;
+    color: var(--text-light);
+}
+
+.overdue .status-badge {
+    background-color: var(--danger-color);
+    color: white;
+}
+
+.completed .status-badge {
+    background-color: var(--success-color);
+    color: white;
+}
+
+.deadline-badge {
+    font-size: 0.85em;
+    color: var(--text-light);
+}
+
+.overdue .deadline-badge::after {
+    content: ' (已逾期!)';
+    color: var(--danger-color);
+    font-weight: bold;
+}
+
+.task-title {
+    font-size: 1.1em;
+    margin-bottom: 10px;
+}
+
+.task-details {
+    font-size: 0.9em;
+    color: var(--text-light);
+    flex-grow: 1;
+}
+
+.card-actions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 15px;
+    border-top: 1px solid #eee;
+    padding-top: 10px;
+}
+
+.btn-action {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 0.85em;
+    font-weight: 500;
+}
+
+.complete-btn {
+    color: var(--success-color);
+}
+
+.delete-btn {
+    color: var(--text-light);
+}
+
+.delete-btn:hover {
+    color: var(--danger-color);
+}
+
+@media (max-width: 600px) {
+    .form-group-row {
+        flex-direction: column;
+        gap: 0;
+    }
+}
